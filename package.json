@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "predev": "node scripts/copy-wasm.mjs",
     "dev": "next dev",
+    "prebuild": "node scripts/copy-wasm.mjs",
     "build": "next build",
     "start": "npx serve out",
     "lint": "eslint",
@@ -11,6 +13,7 @@
   },
   "dependencies": {
     "jspdf": "^4.2.1",
+    "lucide-react": "^1.66.0",
     "next": "16.4.3",
     "qrcode": "^1.5.4",
     "react": "19.3.0",
