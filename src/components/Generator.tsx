@@ -216,7 +216,7 @@ export default function Generator({ initialType }: { initialType?: QrType }) {
         </div>
 
         {/* Preview + export (right column, sticky on desktop) */}
-        <aside className="lg:sticky lg:top-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:self-start">
+        <aside className="lg:sticky lg:top-20 lg:col-start-2 lg:row-span-2 lg:row-start-1 lg:max-h-[calc(100vh-6rem)] lg:self-start lg:overflow-y-auto lg:overscroll-contain lg:rounded-2xl">
           <div className="space-y-4 rounded-2xl border border-zinc-200 bg-white p-5 shadow-sm dark:border-zinc-800 dark:bg-zinc-900/60">
             <div className="checker relative flex aspect-square items-center justify-center overflow-hidden rounded-xl border border-zinc-100 p-6 dark:border-zinc-800">
               {preview ? (
