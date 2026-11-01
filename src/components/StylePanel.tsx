@@ -150,7 +150,7 @@ export function StylePanel({ style, onChange }: Props) {
           label="Custom eye colours"
           hint="Colour the three corner squares separately."
           checked={style.eyeFrameColor !== null}
-          onChange={(on) => set(on ? { eyeFrameColor: "#4f46e5", eyeBallColor: "#0d9488" } : { eyeFrameColor: null, eyeBallColor: null })}
+          onChange={(on) => set(on ? { eyeFrameColor: "#4f46e5", eyeBallColor: "#0f766e" } : { eyeFrameColor: null, eyeBallColor: null })}
         />
         {style.eyeFrameColor !== null && (
           <div className="grid grid-cols-2 gap-3">

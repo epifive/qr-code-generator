@@ -1,0 +1,6 @@
+/opengraph-image
+  Content-Type: image/png
+  Cache-Control: public, max-age=86400
+
+/zxing_reader.wasm
+  Cache-Control: public, max-age=604800

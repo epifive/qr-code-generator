@@ -132,3 +132,22 @@ describe("helpers", () => {
     expect(scanWarnings({ margin: 0 }).some((w) => /quiet zone/i.test(w.text))).toBe(true);
   });
 });
+
+describe("scan: built-in sample designs", () => {
+  it("every sample design decodes at phone-camera resolution", async () => {
+    const { sampleDesigns } = await import("@/lib/presets");
+    const { buildPayload } = await import("@/lib/payloads");
+    for (const d of sampleDesigns()) {
+      const p = buildPayload(d.type, d.fields).value;
+      const { svg } = renderSvg(buildMatrix(p, d.style.ecLevel), d.style);
+      expect(await decodeSvg(svg, 720)).toBe(p);
+    }
+  });
+});
+
+describe("presets", () => {
+  it("no built-in preset triggers a scan warning", async () => {
+    const { STYLE_PRESETS } = await import("@/lib/presets");
+    for (const p of STYLE_PRESETS) expect(scanWarnings({ ...DEFAULT_STYLE, ...p.style }), p.name).toEqual([]);
+  });
+});

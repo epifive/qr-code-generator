@@ -1,10 +1,11 @@
-// In-browser scan check: renders the code to a canvas and decodes it with ZXing-C++ (WebAssembly).
+// In-browser scan check: renders the code to a 720 px canvas (about what a phone camera sees) and decodes it
+// with ZXing-C++ (WebAssembly).
 // The .wasm file is self-hosted from /zxing_reader.wasm (copied from node_modules at build time).
 import { svgToCanvas } from "./exporters";
 
 let prepared = false;
 
-export async function scanCheck(svg: string, aspect: number, width = 480): Promise<string | null> {
+export async function scanCheck(svg: string, aspect: number, width = 720): Promise<string | null> {
   const zx = await import("zxing-wasm/reader");
   if (!prepared) {
     zx.prepareZXingModule({

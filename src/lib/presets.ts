@@ -11,8 +11,8 @@ export interface StylePreset {
 /** One-click looks. Applying a preset keeps the logo and frame text. */
 export const STYLE_PRESETS: StylePreset[] = [
   { id: "classic", name: "Classic", style: { fg: "#111827", bg: "#ffffff", dotShape: "square", eyeFrame: "square", eyeBall: "square", gradient: { ...DEFAULT_STYLE.gradient, enabled: false }, eyeFrameColor: null, eyeBallColor: null } },
-  { id: "indigo", name: "Indigo dots", style: { fg: "#4338ca", bg: "#ffffff", dotShape: "dots", eyeFrame: "rounded", eyeBall: "circle", gradient: { ...DEFAULT_STYLE.gradient, enabled: false }, eyeFrameColor: "#312e81", eyeBallColor: "#0d9488" } },
-  { id: "ocean", name: "Ocean", style: { fg: "#1d4ed8", bg: "#ffffff", dotShape: "fluid", eyeFrame: "rounded", eyeBall: "rounded", gradient: { enabled: true, type: "linear", color2: "#0d9488", rotation: 45 }, eyeFrameColor: null, eyeBallColor: null } },
+  { id: "indigo", name: "Indigo dots", style: { fg: "#4338ca", bg: "#ffffff", dotShape: "dots", eyeFrame: "rounded", eyeBall: "circle", gradient: { ...DEFAULT_STYLE.gradient, enabled: false }, eyeFrameColor: "#312e81", eyeBallColor: "#0f766e" } },
+  { id: "ocean", name: "Ocean", style: { fg: "#1d4ed8", bg: "#ffffff", dotShape: "fluid", eyeFrame: "rounded", eyeBall: "rounded", gradient: { enabled: true, type: "linear", color2: "#0f766e", rotation: 45 }, eyeFrameColor: null, eyeBallColor: null } },
   { id: "sunset", name: "Sunset", style: { fg: "#be123c", bg: "#fffbeb", dotShape: "rounded", eyeFrame: "leaf", eyeBall: "leaf", gradient: { enabled: true, type: "linear", color2: "#c2410c", rotation: 90 }, eyeFrameColor: null, eyeBallColor: null } },
   { id: "forest", name: "Forest", style: { fg: "#14532d", bg: "#f0fdf4", dotShape: "classy", eyeFrame: "leaf", eyeBall: "circle", gradient: { ...DEFAULT_STYLE.gradient, enabled: false }, eyeFrameColor: null, eyeBallColor: "#15803d" } },
   { id: "midnight", name: "Midnight", style: { fg: "#0f172a", bg: "#e0e7ff", dotShape: "dots", eyeFrame: "circle", eyeBall: "circle", gradient: { enabled: true, type: "radial", color2: "#6d28d9", rotation: 0 }, eyeFrameColor: null, eyeBallColor: null } },
