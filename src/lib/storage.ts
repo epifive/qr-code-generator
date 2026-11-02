@@ -13,14 +13,14 @@ export interface SavedDesign {
   updatedAt: string;
 }
 
-const PREFIX = "qr-studio.";
+const PREFIX = "qr-code-generator.";
 const KEY = `${PREFIX}designs.v1`;
 const DRAFT_KEY = `${PREFIX}draft.v1`;
 const SEEDED_KEY = `${PREFIX}seeded.v1`;
 export const THEME_KEY = `${PREFIX}theme`;
 
-/** Key prefix used before the product was renamed; read once and moved to the new keys. */
-export const LEGACY_PREFIX = "qrzen.";
+/** Key prefixes used by earlier names of the product (newest first); read once and moved to the new keys. */
+export const LEGACY_PREFIXES = ["qr-studio.", "qrzen."];
 const MIGRATED_SUFFIXES = ["designs.v1", "draft.v1", "seeded.v1", "theme"];
 let migrated = false;
 
@@ -30,10 +30,12 @@ export function migrateLegacyStorage(): void {
   migrated = true;
   try {
     for (const suffix of MIGRATED_SUFFIXES) {
-      const old = localStorage.getItem(LEGACY_PREFIX + suffix);
-      if (old === null) continue;
-      if (localStorage.getItem(PREFIX + suffix) === null) localStorage.setItem(PREFIX + suffix, old);
-      localStorage.removeItem(LEGACY_PREFIX + suffix);
+      for (const legacy of LEGACY_PREFIXES) {
+        const old = localStorage.getItem(legacy + suffix);
+        if (old === null) continue;
+        if (localStorage.getItem(PREFIX + suffix) === null) localStorage.setItem(PREFIX + suffix, old);
+        localStorage.removeItem(legacy + suffix);
+      }
     }
   } catch {
     /* storage unavailable or full: keep the old keys */
@@ -106,7 +108,7 @@ export function upsertDesign(list: SavedDesign[], design: SavedDesign): SavedDes
 }
 
 export function exportJson(list: SavedDesign[]): string {
-  return JSON.stringify({ app: "qr-studio", version: 1, exportedAt: new Date().toISOString(), designs: list }, null, 2);
+  return JSON.stringify({ app: "qr-code-generator", version: 1, exportedAt: new Date().toISOString(), designs: list }, null, 2);
 }
 
 /** Merge designs from an exported JSON file. Returns the merged list and how many were added/updated. */

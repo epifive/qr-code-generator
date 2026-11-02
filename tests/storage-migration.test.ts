@@ -10,30 +10,42 @@ function fakeStorage(init: Record<string, string>) {
   };
 }
 
+const design = (name: string) => JSON.stringify([{ id: name, name, type: "text", fields: { text: "hi" }, style: {} }]);
+
 describe("legacy localStorage migration", () => {
   afterEach(() => {
     vi.unstubAllGlobals();
     vi.resetModules();
   });
 
-  it("moves data from the old key names once and keeps newer values", async () => {
-    const design = { id: "a", name: "Old design", type: "text", fields: { text: "hi" }, style: {} };
-    const store = fakeStorage({
-      "qrzen.designs.v1": JSON.stringify([design]),
-      "qrzen.seeded.v1": "1",
-      "qrzen.theme": "dark",
-      "qr-studio.theme": "light",
-    });
+  async function load(init: Record<string, string>) {
+    const store = fakeStorage(init);
     vi.stubGlobal("localStorage", store);
     vi.stubGlobal("window", { localStorage: store });
-    const storage = await import("@/lib/storage");
-    const list = storage.loadDesigns();
-    expect(list.map((d) => d.name)).toEqual(["Old design"]);
+    return { store, storage: await import("@/lib/storage") };
+  }
+
+  it("moves data from both earlier key prefixes once and keeps newer values", async () => {
+    const { store, storage } = await load({
+      "qrzen.designs.v1": design("Oldest"),
+      "qrzen.seeded.v1": "1",
+      "qrzen.theme": "dark",
+      "qr-studio.draft.v1": "null",
+      "qr-code-generator.theme": "light",
+    });
+    expect(storage.loadDesigns().map((d) => d.name)).toEqual(["Oldest"]);
     expect(storage.shouldSeed()).toBe(false);
     expect(store.dump()).toEqual({
-      "qr-studio.designs.v1": JSON.stringify([design]),
-      "qr-studio.seeded.v1": "1",
-      "qr-studio.theme": "light",
+      "qr-code-generator.designs.v1": design("Oldest"),
+      "qr-code-generator.seeded.v1": "1",
+      "qr-code-generator.draft.v1": "null",
+      "qr-code-generator.theme": "light",
     });
+  });
+
+  it("prefers the newer earlier prefix when both exist", async () => {
+    const { store, storage } = await load({ "qrzen.designs.v1": design("Oldest"), "qr-studio.designs.v1": design("Newer") });
+    expect(storage.loadDesigns().map((d) => d.name)).toEqual(["Newer"]);
+    expect(Object.keys(store.dump())).toEqual(["qr-code-generator.designs.v1"]);
   });
 });

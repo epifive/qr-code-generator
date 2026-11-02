@@ -38,7 +38,7 @@ export function ThemeToggle() {
     const next = !dark;
     document.documentElement.classList.toggle("dark", next);
     try {
-      localStorage.setItem("qr-studio.theme", next ? "dark" : "light");
+      localStorage.setItem("qr-code-generator.theme", next ? "dark" : "light");
     } catch {}
   };
   return (

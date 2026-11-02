@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 };
 
 // Sets the theme class before first paint (no flash).
-const themeScript = `(function(){try{var t=(localStorage.getItem('qr-studio.theme')||localStorage.getItem('qrzen.theme'));var d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){}})()`;
+const themeScript = `(function(){try{var t=(localStorage.getItem('qr-code-generator.theme')||localStorage.getItem('qr-studio.theme')||localStorage.getItem('qrzen.theme'));var d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

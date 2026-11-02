@@ -5,7 +5,7 @@ import { contrastRatio, DEFAULT_STYLE, normalizeStyle, renderSvg, roundRectPath,
 import { buildUpi, buildVcard, buildWifi, EMPTY_FIELDS } from "@/lib/payloads";
 import { decodeSvg } from "./decode";
 
-const URL = "https://www.epifive.com/products/qr-studio-pro";
+const URL = "https://www.epifive.com/products/qr-code-generator-pro";
 
 // A simple square logo (data URL) for logo tests.
 const LOGO =
