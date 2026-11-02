@@ -46,7 +46,7 @@ export function SavedDesigns({
   const remove = (d: SavedDesign) => {
     if (window.confirm(`Delete "${d.name}"? This cannot be undone.`)) onChange(designs.filter((x) => x.id !== d.id));
   };
-  const exportAll = () => downloadBlob(new Blob([exportJson(designs)], { type: "application/json" }), `qrzen-designs-${new Date().toISOString().slice(0, 10)}.json`);
+  const exportAll = () => downloadBlob(new Blob([exportJson(designs)], { type: "application/json" }), `qr-studio-designs-${new Date().toISOString().slice(0, 10)}.json`);
   const importFile = async (file?: File) => {
     if (!file) return;
     try {

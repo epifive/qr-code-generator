@@ -124,7 +124,7 @@ export function FreeVsPro() {
         </div>
         <div className="mt-8 flex flex-col items-center gap-3 rounded-2xl bg-gradient-to-br from-indigo-600 to-teal-600 p-8 text-center text-white sm:flex-row sm:text-left">
           <div className="flex-1">
-            <p className="text-xl font-semibold">Qrzen Pro: ₹1,999 / $29, one time</p>
+            <p className="text-xl font-semibold">QR Studio Pro: ₹1,999 / $29, one time</p>
             <p className="mt-1 text-sm text-indigo-100">Full source code, unlimited codes and scans on your own server, 1 year of updates and support.</p>
           </div>
           <a href={SITE.proUrl} className="rounded-xl bg-white px-5 py-3 text-sm font-semibold text-indigo-700 shadow-lg transition hover:bg-indigo-50">
@@ -137,11 +137,11 @@ export function FreeVsPro() {
 }
 
 export const GENERAL_FAQ = [
-  { q: "Is Qrzen really free?", a: "Yes. The generator is free and open source (MIT). There is no sign-up, no watermark, no scan limit and the codes never expire." },
+  { q: "Is QR Studio really free?", a: "Yes. The generator is free and open source (MIT). There is no sign-up, no watermark, no scan limit and the codes never expire." },
   { q: "Do my QR codes expire?", a: "No. These are static codes: the link or text is stored inside the pattern. They keep working forever and do not depend on our website." },
   { q: "Is my data uploaded anywhere?", a: "No. Codes are made in your browser. Logos, WiFi passwords and contact details never leave your device. Saved designs live in your browser's local storage." },
   { q: "Can I use the codes commercially?", a: "Yes. Use them on packaging, menus, flyers, invoices and client work. You own your codes." },
-  { q: "Why does my code not scan?", a: "Usually low contrast, a light code on a dark background, a logo that is too big, or a missing margin. Qrzen tests every design with a real decoder and shows warnings to help you fix it." },
+  { q: "Why does my code not scan?", a: "Usually low contrast, a light code on a dark background, a logo that is too big, or a missing margin. QR Studio tests every design with a real decoder and shows warnings to help you fix it." },
   { q: "What size should I print?", a: "At least 2 × 2 cm, and roughly one tenth of the scanning distance (a poster read from 2 m needs a 20 cm code). Use SVG or PDF for sharp print." },
   { q: "What does Pro add?", a: "Dynamic codes you can edit after printing, scan analytics, password and expiry for links, CSV bulk generation, an API and team/white-label options, as a self-hosted app you own." },
 ];
@@ -193,7 +193,7 @@ export function Footer() {
         <div>
           <p className="font-semibold">Product</p>
           <ul className="mt-3 space-y-2 text-zinc-600 dark:text-zinc-400">
-            <li><a href={SITE.proUrl} className="hover:text-indigo-600">Qrzen Pro</a></li>
+            <li><a href={SITE.proUrl} className="hover:text-indigo-600">QR Studio Pro</a></li>
             <li><a href={SITE.githubUrl} className="hover:text-indigo-600">Source on GitHub</a></li>
             <li><Link href="/#faq" className="hover:text-indigo-600">FAQ</Link></li>
           </ul>

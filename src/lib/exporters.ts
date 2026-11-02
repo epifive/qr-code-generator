@@ -107,7 +107,7 @@ export async function svgToPdfBlob(svg: string, aspect: number, opts: PdfOptions
   const canvas = await svgToCanvas(svg, px, aspect);
   const dataUrl = canvas.toDataURL("image/png");
   const doc = new jsPDF({ unit: "mm", format: [pageW, pageH], orientation: pageW > pageH ? "landscape" : "portrait", compress: true });
-  doc.setProperties({ title: opts.title || "QR code", creator: "Qrzen" });
+  doc.setProperties({ title: opts.title || "QR code", creator: "EpiFive QR Studio" });
   if (fit) {
     doc.addImage(dataUrl, "PNG", 0, 0, codeW, codeH, undefined, "FAST");
   } else if (opts.tile) {

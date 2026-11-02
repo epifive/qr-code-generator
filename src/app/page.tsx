@@ -25,7 +25,7 @@ export default function Home() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "WebApplication",
-            name: SITE.name,
+            name: SITE.fullName,
             url: SITE.url,
             applicationCategory: "UtilitiesApplication",
             operatingSystem: "Any",

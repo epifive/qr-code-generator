@@ -8,11 +8,11 @@ const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"]
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
-  title: { default: `${SITE.tagline} | ${SITE.name}`, template: `%s | ${SITE.name}` },
+  title: { default: `${SITE.tagline} | ${SITE.fullName}`, template: `%s | ${SITE.fullName}` },
   description: SITE.description,
-  applicationName: SITE.name,
+  applicationName: SITE.fullName,
   keywords: ["qr code generator", "free qr code generator", "upi qr code", "wifi qr code", "vcard qr code", "qr code with logo", "whatsapp qr code"],
-  openGraph: { type: "website", siteName: SITE.name, title: SITE.tagline, description: SITE.description, url: "/" },
+  openGraph: { type: "website", siteName: SITE.fullName, title: SITE.tagline, description: SITE.description, url: "/" },
   twitter: { card: "summary_large_image", title: SITE.tagline, description: SITE.description },
   alternates: { canonical: "/" },
 };
@@ -25,7 +25,7 @@ export const viewport: Viewport = {
 };
 
 // Sets the theme class before first paint (no flash).
-const themeScript = `(function(){try{var t=localStorage.getItem('qrzen.theme');var d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){}})()`;
+const themeScript = `(function(){try{var t=(localStorage.getItem('qr-studio.theme')||localStorage.getItem('qrzen.theme'));var d=t?t==='dark':matchMedia('(prefers-color-scheme: dark)').matches;if(d)document.documentElement.classList.add('dark')}catch(e){}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (

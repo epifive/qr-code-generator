@@ -154,7 +154,7 @@ export default function Generator({ initialType }: { initialType?: QrType }) {
     document.getElementById("generator")?.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  const fileBase = `qrzen-${slugify(name || (payload.value ? defaultName() : type))}`;
+  const fileBase = `qr-studio-${slugify(name || (payload.value ? defaultName() : type))}`;
 
   return (
     <div className="space-y-12">

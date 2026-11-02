@@ -65,7 +65,7 @@ export function StylePanel({ style, onChange }: Props) {
   const fileRef = useRef<HTMLInputElement>(null);
   const [logoError, setLogoError] = useState("");
 
-  const sample = useMemo(() => buildMatrix("qrzen", "L"), []);
+  const sample = useMemo(() => buildMatrix("qr-studio", "L"), []);
   const thumbs = useMemo(() => {
     const base: Partial<QrStyle> = { fg: "#18181b", bg: "#ffffff", margin: 1 };
     return {

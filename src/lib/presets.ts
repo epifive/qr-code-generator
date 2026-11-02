@@ -56,7 +56,7 @@ export const TYPE_LOGO: Record<QrType, string> = {
 
 /** Sample fields shown when a type is opened with empty fields. */
 export const SAMPLE_FIELDS: FieldsByType = {
-  url: { url: "https://www.epifive.com/products/qrzen" },
+  url: { url: "https://www.epifive.com/products/qr-studio-pro" },
   text: { text: "Thank you for visiting! Show this code at the counter for 10% off." },
   upi: { vpa: "sharmastore@okaxis", name: "Sharma General Store", amount: "", note: "", currency: "INR" },
   wifi: { ssid: "Cafe Guest", password: "welcome2026", encryption: "WPA", hidden: false },

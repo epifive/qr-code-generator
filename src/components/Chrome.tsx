@@ -38,7 +38,7 @@ export function ThemeToggle() {
     const next = !dark;
     document.documentElement.classList.toggle("dark", next);
     try {
-      localStorage.setItem("qrzen.theme", next ? "dark" : "light");
+      localStorage.setItem("qr-studio.theme", next ? "dark" : "light");
     } catch {}
   };
   return (
@@ -60,6 +60,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 font-semibold tracking-tight">
           <Logo />
           <span className="text-lg">{SITE.name}</span>
+          <span className="hidden text-xs font-normal text-zinc-500 sm:inline dark:text-zinc-400">by EpiFive</span>
         </Link>
         <nav className="hidden items-center gap-5 text-sm text-zinc-600 md:flex dark:text-zinc-400">
           <Link href="/#generator" className="hover:text-zinc-900 dark:hover:text-zinc-100">Generator</Link>

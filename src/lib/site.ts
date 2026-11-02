@@ -1,13 +1,15 @@
 import type { QrType } from "./payloads";
 
 export const SITE = {
-  name: "Qrzen",
-  url: process.env.NEXT_PUBLIC_SITE_URL || "https://qrzen-demo.pages.dev",
+  name: "QR Studio",
+  /** Full product name used in titles and metadata. */
+  fullName: "EpiFive QR Studio",
+  url: process.env.NEXT_PUBLIC_SITE_URL || "https://qr-studio-demo.pages.dev",
   tagline: "Free QR code generator with logos, colours and UPI",
   description:
     "Create QR codes for links, UPI payments, WiFi, vCards, WhatsApp, email, SMS and maps. Add colours, gradients, a logo and a frame, then download PNG, SVG or print-ready PDF. Free, no sign-up, runs in your browser.",
-  proUrl: "https://www.epifive.com/products/qrzen-pro",
-  githubUrl: "https://github.com/epifive/qrzen",
+  proUrl: "https://www.epifive.com/products/qr-studio-pro",
+  githubUrl: "https://github.com/epifive/qr-studio",
   openSourceUrl: "https://www.epifive.com/open-source",
   servicesUrl: "https://www.epifive.com/services#custom-app-development",
   brandUrl: "https://www.epifive.com",
@@ -34,7 +36,7 @@ export const TYPE_INFO: TypeInfo[] = [
     intro: "Turn any link into a styled QR code for posters, packaging, menus and business cards. No sign-up and no expiry.",
     tips: [
       { q: "Will my QR code stop working?", a: "No. A static QR code stores the link itself, so it works for as long as the link works. Nothing passes through our servers." },
-      { q: "Can I change the link later?", a: "Not on a static code, because the link is printed in the pattern. Qrzen Pro adds dynamic codes whose destination you can edit after printing." },
+      { q: "Can I change the link later?", a: "Not on a static code, because the link is printed in the pattern. QR Studio Pro adds dynamic codes whose destination you can edit after printing." },
     ],
   },
   {
@@ -45,7 +47,7 @@ export const TYPE_INFO: TypeInfo[] = [
     h1: "Free UPI QR code generator",
     intro: "Make a UPI payment QR for your shop, invoice or donation page. Customers scan with GPay, PhonePe, Paytm or any UPI app and pay straight into your account.",
     tips: [
-      { q: "Is there a fee?", a: "No. The code is a standard upi://pay link with your UPI ID. Money goes straight from the customer's UPI app to your bank. Qrzen never touches the payment." },
+      { q: "Is there a fee?", a: "No. The code is a standard upi://pay link with your UPI ID. Money goes straight from the customer's UPI app to your bank. QR Studio never touches the payment." },
       { q: "Should I fix the amount?", a: "Leave the amount empty for a counter QR (the customer types the amount). Fill it in for a specific invoice or a fixed-price product." },
       { q: "Is this a merchant QR?", a: "It is a personal UPI deep link. Very large businesses may prefer the merchant QR from their bank or payment gateway, which also gives settlement reports." },
     ],

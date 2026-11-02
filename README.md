@@ -1,4 +1,4 @@
-# Qrzen
+# EpiFive QR Studio
 
 **A free, open-source QR code generator that runs entirely in your browser.** Make QR codes for links,
 UPI payments, WiFi, contact cards (vCard), WhatsApp, email, SMS, text and map locations. Style them with
@@ -7,9 +7,9 @@ that the code scans, and download PNG, SVG or a print-ready PDF. No sign-up, no 
 
 Built with Next.js 16, React 19 and Tailwind CSS 4 as a static site, so it deploys anywhere.
 
-**Live demo:** https://qrzen-demo.pages.dev (sample designs are marked "Sample").
+**Live demo:** https://qr-studio-demo.pages.dev (sample designs are marked "Sample").
 
-![Qrzen generator](screenshots/01-generator.png)
+![QR Studio generator](screenshots/01-generator.png)
 
 ## Features
 
@@ -41,7 +41,7 @@ Built with Next.js 16, React 19 and Tailwind CSS 4 as a static site, so it deplo
 
 ## Free vs Pro
 
-Free does the whole job for static QR codes. **Qrzen Pro** is a self-hosted server app (Next.js + SQLite) for
+Free does the whole job for static QR codes. **QR Studio Pro** is a self-hosted server app (Next.js + SQLite) for
 codes you can change after printing, with stats, bulk and an API, for a one-time price.
 
 | Feature | Free | Pro |
@@ -58,13 +58,13 @@ codes you can change after printing, with stats, bulk and an API, for a one-time
 | REST API with API keys | — | ✅ |
 | Team accounts and white-label branding | — | ✅ |
 
-**Get Pro: https://www.epifive.com/products/qrzen-pro** (₹1,999 / $29, one time, 1 year of updates and support).
+**Get Pro: https://www.epifive.com/products/qr-studio-pro** (₹1,999 / $29, one time, 1 year of updates and support).
 
 ## Quick start
 
 ```bash
-git clone https://github.com/epifive/qrzen.git
-cd qrzen
+git clone https://github.com/epifive/qr-studio.git
+cd qr-studio
 npm install
 npm run dev        # http://localhost:3000
 ```
@@ -83,7 +83,7 @@ Requirements: Node.js 20.9 or newer.
 
 `npm run build` creates a fully static site in `out/`. Host it anywhere:
 
-- **Cloudflare Pages:** `npx wrangler pages deploy out --project-name my-qrzen`, or connect the repo with build
+- **Cloudflare Pages:** `npx wrangler pages deploy out --project-name my-qr-studio`, or connect the repo with build
   command `npm run build` and output directory `out`.
 - **Vercel / Netlify:** import the repo; framework preset Next.js (static export) and output `out`.
 - **Any web server** (Nginx, Apache, S3, GitHub Pages): upload the contents of `out/`. Serve `.wasm` files as
@@ -106,7 +106,7 @@ the Open Graph image use your domain.
 
 ## Contributing
 
-Bug reports and pull requests are welcome. Please open an [issue](https://github.com/epifive/qrzen/issues)
+Bug reports and pull requests are welcome. Please open an [issue](https://github.com/epifive/qr-studio/issues)
 first for larger changes, and run `npm test`, `npm run lint` and `npm run build` before sending a PR.
 
 ## More from EpiFive

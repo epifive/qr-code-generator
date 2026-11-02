@@ -13,9 +13,32 @@ export interface SavedDesign {
   updatedAt: string;
 }
 
-const KEY = "qrzen.designs.v1";
-const DRAFT_KEY = "qrzen.draft.v1";
-const SEEDED_KEY = "qrzen.seeded.v1";
+const PREFIX = "qr-studio.";
+const KEY = `${PREFIX}designs.v1`;
+const DRAFT_KEY = `${PREFIX}draft.v1`;
+const SEEDED_KEY = `${PREFIX}seeded.v1`;
+export const THEME_KEY = `${PREFIX}theme`;
+
+/** Key prefix used before the product was renamed; read once and moved to the new keys. */
+export const LEGACY_PREFIX = "qrzen.";
+const MIGRATED_SUFFIXES = ["designs.v1", "draft.v1", "seeded.v1", "theme"];
+let migrated = false;
+
+/** One-time move of data saved under the old key names (keeps any value already under the new key). */
+export function migrateLegacyStorage(): void {
+  if (migrated || !hasStorage()) return;
+  migrated = true;
+  try {
+    for (const suffix of MIGRATED_SUFFIXES) {
+      const old = localStorage.getItem(LEGACY_PREFIX + suffix);
+      if (old === null) continue;
+      if (localStorage.getItem(PREFIX + suffix) === null) localStorage.setItem(PREFIX + suffix, old);
+      localStorage.removeItem(LEGACY_PREFIX + suffix);
+    }
+  } catch {
+    /* storage unavailable or full: keep the old keys */
+  }
+}
 
 export const QR_TYPES: QrType[] = ["url", "text", "upi", "wifi", "vcard", "email", "sms", "whatsapp", "location"];
 
@@ -54,6 +77,7 @@ export function sanitizeDesign(raw: unknown): SavedDesign | null {
 
 export function loadDesigns(): SavedDesign[] {
   if (!hasStorage()) return [];
+  migrateLegacyStorage();
   try {
     const raw = JSON.parse(localStorage.getItem(KEY) ?? "[]");
     if (!Array.isArray(raw)) return [];
@@ -82,7 +106,7 @@ export function upsertDesign(list: SavedDesign[], design: SavedDesign): SavedDes
 }
 
 export function exportJson(list: SavedDesign[]): string {
-  return JSON.stringify({ app: "qrzen", version: 1, exportedAt: new Date().toISOString(), designs: list }, null, 2);
+  return JSON.stringify({ app: "qr-studio", version: 1, exportedAt: new Date().toISOString(), designs: list }, null, 2);
 }
 
 /** Merge designs from an exported JSON file. Returns the merged list and how many were added/updated. */
@@ -115,6 +139,7 @@ export interface Draft {
 
 export function loadDraft(): Draft | null {
   if (!hasStorage()) return null;
+  migrateLegacyStorage();
   try {
     const d = JSON.parse(localStorage.getItem(DRAFT_KEY) ?? "null");
     if (!d || !QR_TYPES.includes(d.type)) return null;
@@ -136,6 +161,7 @@ export function saveDraft(d: Draft): void {
 /** True the first time this browser opens the app (used to add sample designs once). */
 export function shouldSeed(): boolean {
   if (!hasStorage()) return false;
+  migrateLegacyStorage();
   if (localStorage.getItem(SEEDED_KEY)) return false;
   localStorage.setItem(SEEDED_KEY, "1");
   return true;
