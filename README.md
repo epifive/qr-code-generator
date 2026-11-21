@@ -1,5 +1,14 @@
 # EpiFive QR Code Generator
 
+<!-- epifive:header -->
+> Make QR codes for links, UPI payments, Wi-Fi and contact cards, styled with your logo and frame, entirely in the browser.
+
+[![Licence: MIT](https://img.shields.io/badge/licence-MIT-0a7560?style=flat-square)](LICENSE)
+[![Latest release](https://img.shields.io/github/v/release/epifive/qr-code-generator?style=flat-square&label=release&color=4f5bd5)](https://github.com/epifive/qr-code-generator/releases/latest)
+[![GitHub stars](https://img.shields.io/github/stars/epifive/qr-code-generator?style=flat-square&color=b5791b)](https://github.com/epifive/qr-code-generator/stargazers)
+
+**[Docs & guide on epifive.com](https://www.epifive.com/blog/free-qr-code-generator-open-source?utm_source=github&utm_medium=readme&utm_campaign=qr-code-generator)** · **[Live demo](https://qr-code-generator-demo.pages.dev)** · **[Download the latest release](https://github.com/epifive/qr-code-generator/releases/latest)** · [Pro edition](https://www.epifive.com/products/qr-code-generator-pro?utm_source=github&utm_medium=readme&utm_campaign=qr-code-generator)
+
 **A free, open-source QR code generator that runs entirely in your browser.** Make QR codes for links,
 UPI payments, WiFi, contact cards (vCard), WhatsApp, email, SMS, text and map locations. Style them with
 colours, gradients, dot and eye shapes, put your logo in the centre, add a frame with a call to action, check
@@ -89,6 +98,8 @@ Requirements: Node.js 20.9 or newer.
 - **Any web server** (Nginx, Apache, S3, GitHub Pages): upload the contents of `out/`. Serve `.wasm` files as
   `application/wasm` for the scan test.
 
+**No build tools?** Download `qr-code-generator-vX.Y.Z-static.zip` from the [latest release](https://github.com/epifive/qr-code-generator/releases/latest) and upload its contents to any static host (it is built with the default site URL).
+
 Set `NEXT_PUBLIC_SITE_URL` (e.g. `https://qr.example.com`) before building so canonical URLs, the sitemap and
 the Open Graph image use your domain.
 
@@ -123,3 +134,7 @@ QR encoding by [node-qrcode](https://github.com/soldair/node-qrcode) (MIT), deco
 ## License
 
 [MIT](LICENSE) © 2026 EpiFive
+
+---
+
+<p align="center">Made by <b>EpiFive</b> — <a href="https://www.epifive.com/?utm_source=github&utm_medium=readme&utm_campaign=qr-code-generator">www.epifive.com</a> · <a href="https://www.epifive.com/open-source?utm_source=github&utm_medium=readme&utm_campaign=qr-code-generator">more open-source projects</a></p>
